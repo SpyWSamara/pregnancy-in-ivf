@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Вероятность наступления беременности в результате ЭКО</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container theme-showcase" role="main">
+      <div class="page-header">
+        <h1>Прогнозирование наступления беременности в результате программы экстракорпорального оплодотворения и переноса эмбрионов в полость матки</h1>
+      </div>
+      <div class="page-header">
+        <h2>Прогноз по исходным клиническим данным</h2>
+      </div>
+      <div class="row">
+        <div class="panel panel-success">
+          <div class="panel-heading">
+            <h3 class="panel-title">Введите данные</h3>
+          </div>
+          <div class="panel-body">
+            <fieldset class="form-horizontal" role="form" id="calcForm1">
+              <div class="form-group">
+                <label for="coefA" class="col-sm-6 control-label">Возраст пациентки:</label>
+                <div class="col-sm-6">
+                  <input type="number" class="form-control" id="coefA" name="coefA" min="18" value="18">
+                  <p class="help-block">лет</p>
+                </div>
+              </div>
+            
+              <div class="form-group">
+                <label for="coefB" class="col-sm-6 control-label">Передне-задний размер матки согласно УЗИ:</label>
+                <div class="col-sm-6">
+                  <input type="number" class="form-control" id="coefB" name="coefB" min="1" value="1">
+                  <p class="help-block">мм</p>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label class="col-sm-6 control-label">Снижение овариального резерва:</label>
+                <div class="col-sm-6">
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="coefC" id="coefCYes" value="1" checked="">
+                      Да
+                    </label>
+                  </div>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="coefC" id="coefCNo" value="0">
+                      Нет
+                    </label>
+                  </div>
+                  <p class="help-block">выберите верное</p>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label class="col-sm-6 control-label">Седловидная матка:</label>
+                <div class="col-sm-6">
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="coefD" id="coefDYes" value="1" checked="">
+                      Да
+                    </label>
+                  </div>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="coefD" id="coefDNo" value="0">
+                      Нет
+                    </label>
+                  </div>
+                  <p class="help-block">выберите верное</p>
+                </div>
+              </div>
+              
+              <div class="text-center">
+                <button type="button" class="btn btn-lg btn-success" id="startCalc1">Рассчитать</button>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+        <div class="alert alert-success hidden" role="alert" id="resultInfo1">
+          <p><b>Результат</b>: вероятность наступления беременности в результате предстоящей попытки ЭКО согласно исходным клиническим данным составляет: <b id="resultValue1">____</b> (область значений от 0 до 1, коэффициент конкордантности прогностического алгоритма 65,5%)</p>
+        </div>
+      </div>
+      <div class="page-header">
+        <h2>Прогноз по данным реализации программы экстракорпорального оплодотворения и переноса эмбрионов в полость матки</h2>
+      </div>
+      <div class="row">
+        <div class="panel panel-success">
+          <div class="panel-heading">
+            <h3 class="panel-title">Введите данные</h3>
+          </div>
+          <div class="panel-body">
+            <fieldset class="form-horizontal" role="form" id="calcForm2">
+              <div class="form-group">
+                <label for="coefE" class="col-sm-6 control-label">Число полученных эмбрионов хорошего и отличного качества:</label>
+                <div class="col-sm-6">
+                  <input type="number" class="form-control" id="coefE" name="coefE" min="1" value="1">
+                </div>
+              </div>
+            
+              <div class="form-group">
+                <label class="col-sm-6 control-label">Момент переноса эмбрионов в полость матки:</label>
+                <div class="col-sm-6">
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="coefF" id="coefF2day" value="1" checked="">
+                      2е сутки
+                    </label>
+                  </div>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="coefF" id="coefF3day" value="2">
+                      3е сутки
+                    </label>
+                  </div>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="coefF" id="coefF5day" value="3">
+                      5е сутки
+                    </label>
+                  </div>
+                  <p class="help-block">выберите верное</p>
+                </div>
+              </div>
+              
+              <div class="text-center">
+                <button type="button" class="btn btn-lg btn-success" id="startCalc2">Рассчитать</button>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+        <div class="alert alert-success hidden" role="alert" id="resultInfo2">
+          <p><b>Результат</b>: вероятность наступления беременности в результате данной попытки ЭКО  составляет: <b id="resultValue2">____</b> (область значений от 0 до 1, коэффициент конкордантности прогностического алгоритма 64,7%)</p>
+        </div>
+      </div>
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
